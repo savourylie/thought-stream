@@ -1,0 +1,186 @@
+[
+  {
+    "timestamp": "2025-07-21T23:11:14.709004",
+    "name": "Baseline",
+    "description": "Cubic spline interpolation through word embeddings",
+    "metrics": {
+      "max_reconstruction_error": 1.3465337382348953e-16,
+      "mean_reconstruction_error": 8.03842619220531e-17,
+      "word_accuracy": 1.0
+    },
+    "config": {
+      "method": "scipy.interp1d",
+      "kind": "cubic"
+    }
+  },
+  {
+    "timestamp": "2025-07-21T23:11:26.165423",
+    "name": "Linear ODE",
+    "description": "dy/dt = Ay",
+    "metrics": {
+      "final_loss": 0.000852421741001308,
+      "training_time": 3.882632255554199,
+      "convergence_rate": 0.6338548433939681,
+      "max_reconstruction_error": 0.7640306949615479,
+      "mean_reconstruction_error": 0.5005094806353251,
+      "word_accuracy": 0.6666666666666666,
+      "reconstruction_errors": [
+        0.0,
+        0.6880680918693542,
+        0.7075827717781067,
+        0.5676307678222656,
+        0.7640306949615479,
+        0.27574455738067627
+      ],
+      "quantized_words": [
+        "The",
+        "The",
+        "sat",
+        "on",
+        "on",
+        "mat"
+      ]
+    },
+    "config": {
+      "architecture": "LinearODE",
+      "parameters": 147456,
+      "epochs": 100
+    }
+  },
+  {
+    "timestamp": "2025-07-21T23:11:37.617760",
+    "name": "Linear + Bias ODE",
+    "description": "dy/dt = Ay + b",
+    "metrics": {
+      "final_loss": 0.0008540032431483269,
+      "training_time": 3.862628936767578,
+      "convergence_rate": 0.6330045707385882,
+      "max_reconstruction_error": 0.7660146951675415,
+      "mean_reconstruction_error": 0.49988119304180145,
+      "word_accuracy": 0.6666666666666666,
+      "reconstruction_errors": [
+        0.0,
+        0.6886228919029236,
+        0.7078884840011597,
+        0.5697082281112671,
+        0.7660146951675415,
+        0.26705285906791687
+      ],
+      "quantized_words": [
+        "The",
+        "The",
+        "sat",
+        "on",
+        "on",
+        "mat"
+      ]
+    },
+    "config": {
+      "architecture": "BiasedLinearODE",
+      "parameters": 147840,
+      "epochs": 100
+    }
+  },
+  {
+    "timestamp": "2025-07-21T23:11:49.224796",
+    "name": "Time-Aware ODE",
+    "description": "dy/dt = f(y,t)",
+    "metrics": {
+      "final_loss": 0.0008408292778767645,
+      "training_time": 4.354949712753296,
+      "convergence_rate": 0.6385733495584968,
+      "max_reconstruction_error": 0.7538449764251709,
+      "mean_reconstruction_error": 0.4965405414501826,
+      "word_accuracy": 0.6666666666666666,
+      "reconstruction_errors": [
+        0.0,
+        0.6822152137756348,
+        0.702317476272583,
+        0.5753777027130127,
+        0.7538449764251709,
+        0.2654878795146942
+      ],
+      "quantized_words": [
+        "The",
+        "The",
+        "sat",
+        "on",
+        "on",
+        "mat"
+      ]
+    },
+    "config": {
+      "architecture": "TimeAwareODE",
+      "parameters": 148224,
+      "epochs": 100
+    }
+  },
+  {
+    "timestamp": "2025-07-21T23:12:00.626961",
+    "name": "Shallow Nonlinear",
+    "description": "dy/dt = tanh(Ay+b)",
+    "metrics": {
+      "final_loss": 0.0008575227111577988,
+      "training_time": 3.974782943725586,
+      "convergence_rate": 0.6343443298795074,
+      "max_reconstruction_error": 0.7635180950164795,
+      "mean_reconstruction_error": 0.5013391425212225,
+      "word_accuracy": 0.6666666666666666,
+      "reconstruction_errors": [
+        0.0,
+        0.6934910416603088,
+        0.7081942558288574,
+        0.5732067227363586,
+        0.7635180950164795,
+        0.2696247398853302
+      ],
+      "quantized_words": [
+        "The",
+        "The",
+        "sat",
+        "on",
+        "on",
+        "mat"
+      ]
+    },
+    "config": {
+      "architecture": "ShallowNonlinearODE",
+      "parameters": 147840,
+      "epochs": 100
+    }
+  },
+  {
+    "timestamp": "2025-07-21T23:12:11.758963",
+    "name": "Deep Nonlinear",
+    "description": "dy/dt = MLP(y,t)",
+    "metrics": {
+      "final_loss": 0.0009632912697270513,
+      "training_time": 4.427804946899414,
+      "convergence_rate": 0.586200404087523,
+      "max_reconstruction_error": 0.7641556859016418,
+      "mean_reconstruction_error": 0.5497408906618754,
+      "word_accuracy": 0.5,
+      "reconstruction_errors": [
+        0.0,
+        0.6057350039482117,
+        0.7346101999282837,
+        0.7641556859016418,
+        0.6850727200508118,
+        0.5088717341423035
+      ],
+      "quantized_words": [
+        "The",
+        "cat",
+        "cat",
+        "cat",
+        "mat",
+        "mat"
+      ]
+    },
+    "config": {
+      "architecture": "DeepNonlinearODE",
+      "parameters": 53824,
+      "epochs": 100
+    }
+  }
+]
